@@ -133,12 +133,13 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               ))}
             </div>
             <div className="flex w-full items-center justify-center pb-6">
-              <p className="min-h-[50px] max-w-[300px] text-center font-forum text-4xl">
+              <p className="font-forum min-h-[50px] max-w-[300px] text-center text-4xl">
                 {slides[selectedIndex]?.name}
               </p>
             </div>
           </div>
         </div>
+        <div></div>
         <div className="relative flex h-auto w-full items-center justify-end gap-2 px-10 md:px-64">
           <div className="absolute left-1/2 flex -translate-x-1/2 transform items-center gap-6">
             <PrevButton
@@ -150,7 +151,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               disabled={nextBtnDisabled}
             />
           </div>
-          <p className="flex items-center font-playfair text-3xl">
+          <p className="font-playfair flex items-center text-3xl">
             <span className="text-primary">{selectedIndex + 1}</span>/{" "}
             {scrollSnaps.length}
           </p>

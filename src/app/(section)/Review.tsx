@@ -10,18 +10,22 @@ import {
 import { useRestaurant } from "@/context/RestaurantContext";
 import Image from "next/image";
 
-const Reviews = ({ }) => {
+const Reviews = ({}) => {
   const { reviews } = useRestaurant();
   return (
     <section className="relative flex h-full w-full justify-center bg-transparent">
       <div className="flex h-full w-full max-w-[1300px] flex-col items-start justify-center gap-4 py-12 md:py-44 md:pt-24">
-        <div className="flex h-full w-full flex-col items-start justify-center gap-2 lg:gap-4">
-          <h3 className="w-full text-center font-bai uppercase text-primary">
-            Reviews
+        <div className="flex h-full w-full flex-col items-center justify-center gap-0">
+          <h3 className="w-full text-center text-2xl font-[400] uppercase tracking-[1.82px] text-black">
+            Our Clients Say
           </h3>
-          <h1 className="w-full text-center font-forum text-5xl md:text-8xl font-[400] text-primary">
-            Hear Our Guests
-          </h1>
+          <Image
+            src="/images/home/footer/underline.png"
+            width={391}
+            height={50}
+            alt="frame"
+            className="h-[30px] w-[70%] md:w-[20%]"
+          />
         </div>
         <div className="flex w-full items-center justify-center p-4">
           {reviews && (
