@@ -1,13 +1,15 @@
+'use client'
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
 
 const About: React.FC = () => {
+
   return (
     <section className="h-full w-full bg-white px-4 py-12 md:px-32 md:py-24">
       <div className="flex flex-col-reverse items-center justify-center gap-12 md:flex-row md:gap-24">
-        <div className="relative">
-          <div className="absolute bottom-6 left-6 h-full w-full">
+        <div className="relative group">
+          <div className="absolute bottom-6 left-6 h-full w-full group-hover:bottom-0 group-hover:left-0 transition-all duration-500 ease-in">
             <Image
               src="/images/home/about/frame.svg"
               width={100}

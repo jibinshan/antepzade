@@ -82,9 +82,21 @@ const Navbar = ({
             <Icons.menu />
           </Button>
         </Sidebar>
+        <EqualizerIcon />
       </div>
     </nav>
   );
 };
 
 export default Navbar;
+
+
+const EqualizerIcon: React.FC = () => {
+  return (
+    <div className="equalizer-icon rotate">
+      <div className="bar"></div>
+      <div className="bar"></div>
+      <div className="bar"></div>
+    </div>
+  );
+};

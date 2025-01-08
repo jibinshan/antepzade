@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "@/styles/ham.css"
 
 import { cn } from "@/lib/utils";
 import { type Metadata } from "next";
