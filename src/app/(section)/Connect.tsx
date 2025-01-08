@@ -14,12 +14,12 @@ const Connect: React.FC = () => {
       }}
     >
       <div className="flex flex-col items-center justify-center gap-16">
-        <h3 className="text-center text-2xl tracking-[1.1px] text-black md:text-3xl">
+        <h3 className="font-italiana text-center text-2xl tracking-[1.1px] text-black md:text-3xl">
           CONNECT WITH US
         </h3>
         <div className="flex flex-col gap-16 md:flex-row">
-          <div className="relative">
-            <div className="absolute bottom-6 right-6 h-full w-full">
+          <div className="group relative">
+            <div className="absolute bottom-6 right-6 h-full w-full transition-all duration-500 ease-in group-hover:bottom-0 group-hover:right-0">
               <Image
                 src="/images/home/about/frame.svg"
                 width={100}
@@ -38,8 +38,8 @@ const Connect: React.FC = () => {
             />
           </div>
 
-          <div className="relative">
-            <div className="absolute right-6 top-6 h-full w-full">
+          <div className="group relative">
+            <div className="absolute right-6 top-6 h-full w-full transition-all duration-500 ease-in group-hover:right-0 group-hover:top-0">
               <Image
                 src="/images/home/about/frame.svg"
                 width={100}
@@ -57,8 +57,8 @@ const Connect: React.FC = () => {
               className="h-[315px] w-[258px]"
             />
           </div>
-          <div className="relative">
-            <div className="absolute bottom-6 left-6 h-full w-full">
+          <div className="group relative">
+            <div className="absolute bottom-6 left-6 h-full w-full transition-all duration-500 ease-in group-hover:bottom-0 group-hover:left-0">
               <Image
                 src="/images/home/about/frame.svg"
                 width={100}

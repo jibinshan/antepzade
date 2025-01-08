@@ -59,7 +59,7 @@ const Special = ({}) => {
           </div>
           <div className="flex flex-col items-center justify-center gap-8 md:gap-28">
             <div className="flex flex-col items-center justify-center">
-              <h3 className="text-center text-3xl font-[400] uppercase text-black">
+              <h3 className="font-italiana text-center text-3xl font-[400] uppercase text-black">
                 Antepzade Specials
               </h3>
               <Image

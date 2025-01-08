@@ -1,15 +1,14 @@
-'use client'
+"use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
 
 const About: React.FC = () => {
-
   return (
     <section className="h-full w-full bg-white px-4 py-12 md:px-32 md:py-24">
       <div className="flex flex-col-reverse items-center justify-center gap-12 md:flex-row md:gap-24">
-        <div className="relative group">
-          <div className="absolute bottom-6 left-6 h-full w-full group-hover:bottom-0 group-hover:left-0 transition-all duration-500 ease-in">
+        <div className="group relative">
+          <div className="absolute bottom-6 left-6 h-full w-full transition-all duration-500 ease-in group-hover:bottom-0 group-hover:left-0">
             <Image
               src="/images/home/about/frame.svg"
               width={100}
@@ -28,10 +27,10 @@ const About: React.FC = () => {
           />
         </div>
         <div className="flex flex-col items-start justify-center gap-4">
-          <h4 className="text-2xl font-[400] uppercase tracking-[1.82px] text-black">
+          <h4 className="font-italiana text-2xl font-[400] uppercase tracking-[1.82px] text-black">
             About Us
           </h4>
-          <p className="w-full max-w-[826px] text-lg font-[400] leading-[22px] tracking-[0.30px] text-black">
+          <p className="font-inter text-SM w-full max-w-[826px] font-[400] leading-[22px] tracking-[0.30px] text-black">
             Lorem Ipsum proin gravida nibh vel velit auctor aliquetenean
             sollicitudin, lorem qui bibendum <br /> auctor, nisi elit consequat
             gravida nibh vel velit auctor lorem qui bibendum auctor <br />{" "}

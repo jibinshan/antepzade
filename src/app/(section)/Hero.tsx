@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 flex h-full w-full items-center justify-center bg-black/50">
         <div className="text-center text-white">
-          <h1 className="text-center text-4xl font-[400] text-white md:text-6xl">
+          <h1 className="font-italiana text-center text-3xl font-[400] text-white md:text-6xl">
             Welcome to Antepzade, <br /> Where Every Moment Sparkles
           </h1>
           <div className="mt-5 flex h-full w-full justify-center">
@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
               className="h-[1px] w-[70%]"
             />
           </div>
-          <p className="mt-5 text-lg font-[400] italic text-white md:text-2xl">
+          <p className="font-baskerville mt-5 text-lg font-[400] italic text-white md:text-2xl">
             in North London
           </p>
           <div>

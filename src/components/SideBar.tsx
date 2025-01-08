@@ -21,27 +21,39 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
           <SheetDescription className="flex w-full flex-col items-start justify-start gap-7 pt-14">
             <Link
               href="/"
-              className="font-playfair flex w-full justify-start p-0 text-4xl font-normal text-accent"
+              className="font-playfair flex w-full justify-start p-0 text-2xl font-normal uppercase text-accent text-black"
             >
               Home
             </Link>
             <Link
               href="/menu"
-              className="font-playfair flex w-full justify-start p-0 text-4xl font-normal text-accent"
+              className="font-playfair flex w-full justify-start p-0 text-2xl font-normal uppercase text-accent text-black"
             >
-              Menu
+              About Us
             </Link>
             <Link
               href="/contact"
-              className="font-playfair flex w-full justify-start p-0 text-4xl font-normal text-accent"
+              className="font-playfair flex w-full justify-start p-0 text-2xl font-normal uppercase text-accent text-black"
             >
-              Contact
+              Gallery
             </Link>
             <Link
               href="/table-booking"
-              className="font-playfair flex w-full justify-start p-0 text-4xl font-normal text-accent text-black"
+              className="font-playfair flex w-full justify-start p-0 text-2xl font-normal uppercase text-accent text-black"
             >
-              Table Booking
+              VIRTUAL TOUR
+            </Link>
+            <Link
+              href="/table-booking"
+              className="font-playfair flex w-full justify-start p-0 text-2xl font-normal uppercase text-accent text-black"
+            >
+              RESERVATION
+            </Link>
+            <Link
+              href="/table-booking"
+              className="font-playfair flex w-full justify-start p-0 text-2xl font-normal uppercase text-accent text-black"
+            >
+              CONTACT US
             </Link>
           </SheetDescription>
         </SheetHeader>

@@ -17,7 +17,7 @@ const Menu: React.FC = () => {
 
       <div className="flex h-full w-full flex-col items-center gap-4">
         <div className="flex flex-col items-center justify-center gap-1">
-          <h2 className="text-2xl font-[400] uppercase tracking-[1.82px] text-black md:text-3xl">
+          <h2 className="font-baskerville text-2xl font-[400] uppercase tracking-[1.82px] text-black md:text-3xl">
             Menu
           </h2>
           <Image
@@ -46,10 +46,10 @@ const Menu: React.FC = () => {
                   />
                 </div>
                 <div className="flex w-auto flex-col md:w-[488px]">
-                  <p className="text-lg font-[600] text-[#493D35] md:text-xl">
+                  <p className="font-inter text-lg font-[600] text-[#493D35] md:text-xl">
                     Cake Sweet Bite
                   </p>
-                  <p className="text-sm font-[500] text-[#493D35] md:text-lg">
+                  <p className="font-inter text-sm font-[500] text-[#493D35] md:text-lg">
                     Lorem ipsum dolor, feugiat decilata
                   </p>
                 </div>
@@ -63,7 +63,7 @@ const Menu: React.FC = () => {
                       className="h-[8px] w-[116px]"
                     />
                   </div>
-                  <p className="flex items-end text-lg font-[600] text-[#493D35]">
+                  <p className="it font-interems-end flex text-lg font-[600] text-[#493D35]">
                     25.00$
                   </p>
                 </div>
@@ -87,10 +87,10 @@ const Menu: React.FC = () => {
                   />
                 </div>
                 <div className="flex w-auto flex-col md:w-[488px]">
-                  <p className="text-lg font-[600] text-[#493D35] md:text-xl">
+                  <p className="font-inter text-lg font-[600] text-[#493D35] md:text-xl">
                     Cake Sweet Bite
                   </p>
-                  <p className="text-sm font-[500] text-[#493D35] md:text-lg">
+                  <p className="font-inter text-sm font-[500] text-[#493D35] md:text-lg">
                     Lorem ipsum dolor, feugiat decilata
                   </p>
                 </div>
@@ -104,7 +104,7 @@ const Menu: React.FC = () => {
                       className="h-[8px] w-[116px]"
                     />
                   </div>
-                  <p className="flex items-end text-lg font-[600] text-[#493D35]">
+                  <p className="it font-interems-end flex text-lg font-[600] text-[#493D35]">
                     25.00$
                   </p>
                 </div>

@@ -13,10 +13,10 @@ import Image from "next/image";
 const Reviews = ({}) => {
   const { reviews } = useRestaurant();
   return (
-    <section className="relative flex h-full w-full justify-center bg-transparent">
+    <section className="relative mb-8 flex h-full w-full justify-center bg-transparent md:mb-0">
       <div className="flex h-full w-full max-w-[1300px] flex-col items-start justify-center gap-4 py-12 md:py-44 md:pt-24">
         <div className="flex h-full w-full flex-col items-center justify-center gap-0">
-          <h3 className="w-full text-center text-2xl font-[400] uppercase tracking-[1.82px] text-black">
+          <h3 className="font-italiana w-full text-center text-2xl font-[400] uppercase tracking-[1.82px] text-black">
             Our Clients Say
           </h3>
           <Image
