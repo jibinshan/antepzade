@@ -56,9 +56,6 @@ importers:
       '@tanstack/react-query':
         specifier: ^5.56.2
         version: 5.56.2(react@18.3.1)
-      '@types/gsap':
-        specifier: ^3.0.0
-        version: 3.0.0
       axios:
         specifier: ^1.7.7
         version: 1.7.7
@@ -129,6 +126,9 @@ importers:
       '@types/eslint':
         specifier: ^8.56.10
         version: 8.56.12
+      '@types/gsap':
+        specifier: ^3.0.0
+        version: 3.0.0
       '@types/lodash.debounce':
         specifier: ^4.0.9
         version: 4.0.9
