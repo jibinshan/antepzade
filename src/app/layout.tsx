@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 import { cn } from "@/lib/utils";
 import { type Metadata } from "next";
-import { Oswald, Roboto, Playfair_Display, Bai_Jamjuree, Forum, Josefin_Sans, Poppins, Joan } from "next/font/google";
+import { Josefin_Sans, Poppins, Baskervville, Italiana, Inter } from "next/font/google";
 import Providers from "@/app/Providers";
 
 export const metadata: Metadata = {
@@ -24,9 +24,21 @@ const poppins = Poppins({
   weight: ["100", "300", "400", "500", "700", "900"],
 });
 
-const joan = Joan({
+const baskerville = Baskervville({
   subsets: ["latin"],
-  variable: "--font-joan",
+  variable: "--font-baskerville",
+  weight: ["400"],
+});
+
+const italiana = Italiana({
+  subsets: ["latin"],
+  variable: "--font-italiana",
+  weight: ["400"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
   weight: ["400"],
 });
 
@@ -40,7 +52,9 @@ export default function RootLayout({
           "theme-custom flex min-h-screen font-josefin_sans antialiased",
           josefin_sans.variable,
           poppins.variable,
-          joan.variable,
+          inter.variable,
+          baskerville.variable,
+          italiana.variable
         )}
       >
         <Providers>{children}</Providers>

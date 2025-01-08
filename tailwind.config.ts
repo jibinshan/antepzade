@@ -10,7 +10,9 @@ export default {
       fontFamily: {
         josefin_sans: ["var(--font-josefin_sans)", ...fontFamily.sans],
         poppins: ["var(--font-poppins)", ...fontFamily.sans],
-        joan: ["var(--font-joan)", ...fontFamily.sans],
+        italiana: ["var(--font-italiana)", ...fontFamily.sans],
+        inter: ["var(--font-inter)", ...fontFamily.sans],
+        baskerville: ["var(--font-baskerville)", ...fontFamily.sans],
       },
       borderRadius: {
         lg: "var(--radius)",
