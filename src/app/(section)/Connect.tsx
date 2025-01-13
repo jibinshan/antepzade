@@ -14,7 +14,7 @@ const Connect: React.FC = () => {
       }}
     >
       <div className="flex flex-col items-center justify-center gap-16">
-        <h3 className="font-italiana text-center text-2xl tracking-[1.1px] text-black md:text-3xl">
+        <h3 className="text-center font-italiana text-2xl tracking-[1.1px] text-black md:text-3xl">
           CONNECT WITH US
         </h3>
         <div className="flex flex-col gap-16 md:flex-row">
@@ -34,7 +34,7 @@ const Connect: React.FC = () => {
               width={373}
               height={468}
               alt="image1"
-              className="h-[315px] w-[258px]"
+              className="h-[315px] w-[258px] object-contain"
             />
           </div>
 
@@ -54,7 +54,7 @@ const Connect: React.FC = () => {
               width={373}
               height={468}
               alt="image2"
-              className="h-[315px] w-[258px]"
+              className="h-[315px] w-[258px] object-contain"
             />
           </div>
           <div className="group relative">
@@ -73,7 +73,7 @@ const Connect: React.FC = () => {
               width={373}
               height={468}
               alt="image3"
-              className="h-[315px] w-[258px]"
+              className="h-[315px] w-[258px] object-contain"
             />
           </div>
         </div>

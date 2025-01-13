@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 flex h-full w-full items-center justify-center bg-black/50">
         <div className="text-center text-white">
-          <h1 className="font-italiana text-center text-3xl font-[400] text-white md:text-6xl">
+          <h1 className="text-center font-italiana text-3xl font-[400] text-white md:text-6xl">
             Welcome to Antepzade, <br /> Where Every Moment Sparkles
           </h1>
           <div className="mt-5 flex h-full w-full justify-center">
@@ -29,11 +29,11 @@ const Hero: React.FC = () => {
               className="h-[1px] w-[70%]"
             />
           </div>
-          <p className="font-baskerville mt-5 text-lg font-[400] italic text-white md:text-2xl">
+          <p className="mt-5 font-baskerville text-lg font-[400] italic text-[#FFF] md:text-2xl">
             in North London
           </p>
           <div>
-            <Button className="mt-4 rounded-none px-9 py-6 font-poppins text-sm font-[500] uppercase text-white">
+            <Button className="mt-4 rounded-none px-10 py-6 font-poppins text-sm font-[500] uppercase text-white hover:bg-gray-800">
               Order Now
             </Button>
           </div>

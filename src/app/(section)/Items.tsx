@@ -4,7 +4,7 @@ import React from "react";
 const Items: React.FC = () => {
   return (
     <section
-      className="h-full w-full px-4 py-12 md:px-32 md:py-24"
+      className="h-full w-full px-4 py-12 md:px-32 md:py-16"
       style={{
         backgroundImage: "url('/images/home/items/bg.png')",
         backgroundSize: "cover",
@@ -14,7 +14,7 @@ const Items: React.FC = () => {
     >
       <div className="flex flex-col items-center justify-center gap-8">
         <div className="flex flex-col items-center justify-center">
-          <h3 className="font-italiana text-center text-3xl font-[400] uppercase text-black">
+          <h3 className="text-center font-italiana text-3xl font-[400] uppercase text-black">
             Our Special Items
           </h3>
           <Image
@@ -26,7 +26,7 @@ const Items: React.FC = () => {
           />
         </div>
         <div>
-          <ul className="flex flex-col gap-14 md:flex-row md:gap-20">
+          <ul className="flex flex-col items-center justify-center gap-10 md:flex-row md:gap-20">
             <li className="flex flex-col gap-5">
               <div>
                 <Image
@@ -34,14 +34,14 @@ const Items: React.FC = () => {
                   width={100}
                   height={100}
                   alt="frame"
-                  className="h-[238px] w-[238px] rounded-full"
+                  className="h-[200px] w-[200px] rounded-full object-contain md:h-[238px] md:w-[238px]"
                 />
               </div>
               <div className="flex flex-col items-center justify-center gap-2">
                 <h5 className="font-inter text-3xl font-[400] text-[#BC995D]">
                   Baklava
                 </h5>
-                <p className="font-inter text-center text-sm font-[400] text-[#5D5D5D]">
+                <p className="text-center font-inter text-sm font-[400] text-[#5D5D5D]">
                   Lorem Ipsum proin gravida <br /> nibh vel velit auctor{" "}
                 </p>
               </div>
@@ -53,14 +53,14 @@ const Items: React.FC = () => {
                   width={100}
                   height={100}
                   alt="frame"
-                  className="h-[238px] w-[238px] rounded-full"
+                  className="h-[200px] w-[200px] rounded-full object-contain md:h-[238px] md:w-[238px]"
                 />
               </div>
               <div className="flex flex-col items-center justify-center gap-2">
                 <h5 className="font-inter text-3xl font-[400] text-[#BC995D]">
                   Baklava
                 </h5>
-                <p className="font-inter text-center text-sm font-[400] text-[#5D5D5D]">
+                <p className="text-center font-inter text-sm font-[400] text-[#5D5D5D]">
                   Lorem Ipsum proin gravida <br /> nibh vel velit auctor{" "}
                 </p>
               </div>
@@ -72,14 +72,14 @@ const Items: React.FC = () => {
                   width={100}
                   height={100}
                   alt="frame"
-                  className="h-[238px] w-[238px] rounded-full"
+                  className="h-[200px] w-[200px] rounded-full object-contain md:h-[238px] md:w-[238px]"
                 />
               </div>
               <div className="flex flex-col items-center justify-center gap-2">
                 <h5 className="font-inter text-3xl font-[400] text-[#BC995D]">
                   Baklava
                 </h5>
-                <p className="font-inter text-center text-sm font-[400] text-[#5D5D5D]">
+                <p className="text-center font-inter text-sm font-[400] text-[#5D5D5D]">
                   Lorem Ipsum proin gravida <br /> nibh vel velit auctor{" "}
                 </p>
               </div>
@@ -91,14 +91,14 @@ const Items: React.FC = () => {
                   width={100}
                   height={100}
                   alt="frame"
-                  className="h-[238px] w-[238px] rounded-full"
+                  className="h-[200px] w-[200px] rounded-full object-contain md:h-[238px] md:w-[238px]"
                 />
               </div>
               <div className="flex flex-col items-center justify-center gap-2">
                 <h5 className="font-inter text-3xl font-[400] text-[#BC995D]">
                   Baklava
                 </h5>
-                <p className="font-inter text-center text-sm font-[400] text-[#5D5D5D]">
+                <p className="text-center font-inter text-sm font-[400] text-[#5D5D5D]">
                   Lorem Ipsum proin gravida <br /> nibh vel velit auctor{" "}
                 </p>
               </div>

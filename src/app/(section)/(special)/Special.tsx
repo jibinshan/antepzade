@@ -49,17 +49,17 @@ const slideData: {
 ];
 const Special = ({}) => {
   return (
-    <section className="relative flex h-full w-full justify-center">
+    <section className="relative flex h-full w-full justify-center bg-[#D5DE93]">
       <div className="flex h-full w-full max-w-[1300px] flex-col items-center justify-center gap-4 py-12">
         <div className="relative">
-          <div className="absolute left-24 top-24 z-10 md:left-[500px] md:top-0">
-            <Button className="rounded-3xl px-6 py-6 font-poppins text-sm font-[500] tracking-[0.58px] text-white">
+          <div className="absolute left-[68px] top-24 z-10 md:left-[390px] md:top-0 xl:left-[500px]">
+            <Button className="rounded-3xl px-7 py-6 font-poppins text-sm font-[500] tracking-[0.58px] text-[#FFFAF0]">
               View Menu
             </Button>
           </div>
           <div className="flex flex-col items-center justify-center gap-8 md:gap-28">
             <div className="flex flex-col items-center justify-center">
-              <h3 className="font-italiana text-center text-3xl font-[400] uppercase text-black">
+              <h3 className="text-center font-italiana text-3xl font-[400] uppercase text-black">
                 Antepzade Specials
               </h3>
               <Image

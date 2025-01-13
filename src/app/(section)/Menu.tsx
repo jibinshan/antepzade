@@ -4,7 +4,7 @@ import React from "react";
 
 const Menu: React.FC = () => {
   return (
-    <section className="relative h-full w-full bg-[#D5DE93] px-4 py-12 md:px-24 md:py-24">
+    <section className="relative h-full w-full bg-[#D5DE93] px-4 py-12 md:px-24 md:py-20">
       <div className="absolute -top-28 right-0 hidden md:block">
         <Image
           src="/images/home/menu/pista.png"
@@ -42,7 +42,7 @@ const Menu: React.FC = () => {
                     width={118}
                     height={76}
                     alt={`left${item}`}
-                    className="h-[40px] w-[120px]"
+                    className="h-[45px] w-[130px] object-contain"
                   />
                 </div>
                 <div className="flex w-auto flex-col md:w-[488px]">
@@ -83,7 +83,7 @@ const Menu: React.FC = () => {
                     width={118}
                     height={76}
                     alt={`right${item}`}
-                    className="h-[40px] w-[120px]"
+                    className="h-[45px] w-[130px] object-contain"
                   />
                 </div>
                 <div className="flex w-auto flex-col md:w-[488px]">
@@ -114,7 +114,7 @@ const Menu: React.FC = () => {
         </div>
 
         <div>
-          <Button className="mt-5 rounded-none bg-[#896E47] px-9 py-6 font-poppins text-sm font-[500] tracking-[0.65px] text-white">
+          <Button className="mt-5 rounded-none bg-[#896E47] px-10 py-6 font-poppins text-sm font-[500] tracking-[0.65px] text-white hover:text-black">
             View Menu
           </Button>
         </div>

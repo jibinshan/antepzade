@@ -16,7 +16,7 @@ const Reviews = ({}) => {
     <section className="relative mb-8 flex h-full w-full justify-center bg-transparent md:mb-0">
       <div className="flex h-full w-full max-w-[1300px] flex-col items-start justify-center gap-4 py-12 md:py-44 md:pt-24">
         <div className="flex h-full w-full flex-col items-center justify-center gap-0">
-          <h3 className="font-italiana w-full text-center text-2xl font-[400] uppercase tracking-[1.82px] text-black">
+          <h3 className="w-full text-center font-italiana text-2xl font-[500] uppercase tracking-[1.82px] text-[#000] md:text-3xl">
             Our Clients Say
           </h3>
           <Image
@@ -57,7 +57,7 @@ const Reviews = ({}) => {
                         )}
                       </div>
                       <div className="">
-                        <p className="font-inter line-clamp-5 text-center text-lg font-[400] text-[#5D5D5D]">
+                        <p className="line-clamp-5 text-center font-inter text-lg font-[400] text-[#5D5D5D]">
                           {review.text}
                         </p>
                       </div>

@@ -20,7 +20,7 @@ const Navbar = ({
 
   return (
     <nav
-      className={`${position} top-5 z-50 flex h-[10vh] w-full flex-col items-center gap-6 bg-transparent py-4 transition-all duration-300 ease-in-out`}
+      className={`${position} top-5 z-50 flex h-[10vh] w-full flex-col items-center gap-6 bg-transparent px-4 py-4 transition-all duration-300 ease-in-out md:px-12`}
     >
       <div className="flex h-full w-full max-w-[1300px] items-center justify-between">
         <Sidebar>

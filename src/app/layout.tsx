@@ -1,9 +1,15 @@
 import "@/styles/globals.css";
-import "@/styles/ham.css"
+import "@/styles/ham.css";
 
 import { cn } from "@/lib/utils";
 import { type Metadata } from "next";
-import { Josefin_Sans, Poppins, Baskervville, Italiana, Inter } from "next/font/google";
+import {
+  Josefin_Sans,
+  Poppins,
+  Baskervville,
+  Italiana,
+  Inter,
+} from "next/font/google";
 import Providers from "@/app/Providers";
 
 export const metadata: Metadata = {
@@ -54,12 +60,12 @@ export default function RootLayout({
           josefin_sans.variable,
           poppins.variable,
           inter.variable,
+          italiana.variable,
           baskerville.variable,
-          italiana.variable
         )}
       >
         <Providers>{children}</Providers>
       </body>
-    </html >
+    </html>
   );
 }

@@ -23,23 +23,22 @@ const About: React.FC = () => {
             width={373}
             height={468}
             alt="cake"
-            className="h-[315px] w-[258px]"
+            className="h-[315px] w-[258px] object-contain"
           />
         </div>
         <div className="flex flex-col items-start justify-center gap-4">
-          <h4 className="font-italiana text-2xl font-[400] uppercase tracking-[1.82px] text-black">
+          <h4 className="font-italiana text-2xl font-[500] uppercase tracking-[1.82px] text-[#000] md:text-3xl">
             About Us
           </h4>
-          <p className="font-inter text-SM w-full max-w-[826px] font-[400] leading-[22px] tracking-[0.30px] text-black">
+          <p className="text-SM w-full max-w-[626px] font-inter font-[400] leading-[22px] tracking-[0.30px] text-black">
             Lorem Ipsum proin gravida nibh vel velit auctor aliquetenean
-            sollicitudin, lorem qui bibendum <br /> auctor, nisi elit consequat
-            gravida nibh vel velit auctor lorem qui bibendum auctor <br />{" "}
-            aliquetenean proin gravida nibh Ipsum proin gravida nibh vel velit
-            nisi elit consequa. <br />
+            sollicitudin, lorem qui bibendum auctor, nisi elit consequat gravida
+            nibh vel velit auctor lorem qui bibendum auctor aliquetenean proin
+            gravida nibh Ipsum proin gravida nibh vel velit nisi elit consequa.
             Nisi elit consequat gravida nibh vel.
           </p>
           <div>
-            <Button className="rounded-none bg-black px-9 py-6 font-poppins text-sm font-[500] uppercase text-white">
+            <Button className="rounded-none bg-black px-10 py-6 font-poppins text-sm font-[500] uppercase text-white hover:bg-gray-800">
               About Us
             </Button>
           </div>
