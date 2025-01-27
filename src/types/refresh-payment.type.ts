@@ -16,6 +16,7 @@ export interface RefreshPayment {
   transactionMessage: string | null;
   tip: number;
   serviceCharge: number;
+  totalCartAmount: number;
   vat: number;
   _id: string;
   deviceName: string;

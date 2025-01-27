@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import Link from "next/link";
 
-const page = ({}) => {
+const page = ({ }) => {
   return (
     <main className="flex h-full min-h-screen w-full flex-col items-center justify-center">
       <div className="flex aspect-square h-32 w-32 items-center justify-center rounded-full bg-primary p-4">

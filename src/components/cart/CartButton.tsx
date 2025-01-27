@@ -12,7 +12,7 @@ const CartButton = ({ }) => {
 
     <Button
       className={cn(
-        "fixed bottom-0 left-0 z-50 w-full h-11 bg-[#f8f8f8] text-black hover:primary",
+        "fixed bottom-0 left-0 z-50 w-full h-11 bg-black text-white hover:bg-black",
         cartItems.length > 0 ? "flex" : "hidden",
       )}
       disabled={!BetaMenuActive}

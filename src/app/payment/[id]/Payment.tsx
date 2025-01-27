@@ -55,7 +55,7 @@ const Payment: FC<{
   }
 
   if (!data) {
-    return <div className="text-primary">Loading...</div>;
+    return <div>Loading...</div>;
   }
 
   return (

@@ -78,17 +78,31 @@
   --popover-foreground: 0, 0%, 0%;
   --primary: 0, 0%, 0%;
   --primary-foreground: 0, 0%, 100%;
-  --secondary: 0,0%,100%;
+  --secondary: 0, 0%, 100%;
   --secondary-foreground: 0, 0%, 100%;
   --muted: 51 100% 20%;
   --muted-foreground: 344 73% 70%;
-  --accent: 0,0%,100%;
+  --accent: 0, 0%, 100%;
   --accent-foreground: 0, 0%, 100%;
   --destructive: 0 85% 60%;
   --destructive-foreground: 0, 0%, 0%;
   --border: 51 100% 20%;
   --input: 0 0% 100%;
   --ring: 344 44% 40%;
+
+  /* menu Checkout Start */
+  --menubackground: 42, 38.46%, 94.9%;
+  --menuforeground: 0, 0%, 100%;
+  --menuprimary: 152, 94%, 20%;
+  --menusecondary: 152, 92%, 14%;
+  --buttonhover: 152, 94%, 20%;
+  --itembackground: 0, 0%, 100%;
+  --menuprimaryforeground: 36, 18%, 70%;
+  --menusecondaryforeground: 0, 0%, 89.02%;
+  --itemdescription: 36, 2.09%, 46.86%;
+  --itembutton: 0, 0%, 9%;
+  --buttondisabled: 0, 0%, 17%;
+  --mobilebg: 42, 38.46%, 94.9%;
 }
 
 /* Scrolling Text Start */

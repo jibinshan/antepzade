@@ -1,24 +1,18 @@
 import Payment from "@/app/payment/[id]/Payment";
-import { BetaMenuActive } from "@/lib/constants";
 import { redirect } from "next/navigation";
-import type { FC } from "react";
 
-interface pageProps {
-  params: {
-    id: string;
-  };
-}
-
-const page: FC<pageProps> = ({ params }) => {
-  if (!BetaMenuActive) {
-    redirect("/");
-  }
-  if (!params?.id) return redirect("/checkout");
-  return (
-    <main className="flex h-full min-h-screen w-full items-center justify-center">
-      <Payment _id={params.id} />
-    </main>
-  );
+const page = async (props: {
+    params: Promise<{
+        id: string;
+    }>;
+}) => {
+    const params = await props.params;
+    if (!params?.id) return redirect("/checkout");
+    return (
+        <main className="flex h-full min-h-screen w-full items-center justify-center">
+            <Payment _id={params.id} />
+        </main>
+    );
 };
 
 export default page;

@@ -5,9 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Sidebar from "./SideBar";
-import CartSheet from "./cart/CartSheet";
 import { BetaMenuActive } from "@/lib/constants";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const Navbar = ({
   position = "static",
@@ -20,9 +20,13 @@ const Navbar = ({
 
   return (
     <nav
-      className={`${position} top-5 z-50 flex h-[10vh] w-full flex-col items-center gap-6 bg-transparent px-4 py-4 transition-all duration-300 ease-in-out md:px-12`}
+      className={cn(`${position} top-5 z-50 flex h-[10vh] w-full flex-col items-center gap-6 bg-transparent px-4 py-4 transition-all duration-300 ease-in-out md:px-12`,
+        pathname !== '/' && "bg-black"
+      )}
     >
-      <div className="flex h-full w-full max-w-[1300px] items-center justify-between">
+      <div className={cn("flex h-full w-full max-w-[1300px] items-center justify-between",
+        pathname !== "/" && "hidden"
+      )}>
         <Sidebar>
           <Button
             variant="ghost"
@@ -65,7 +69,7 @@ const Navbar = ({
             width={1726}
             height={2}
             alt="logo"
-            className="w-full"
+            className={cn("w-full block", pathname !== "/" && 'hidden')}
           />
           <div className="flex h-full w-full items-center justify-center">
             <ul className="flex flex-row gap-10">
@@ -130,7 +134,7 @@ const Navbar = ({
             width={1726}
             height={2}
             alt="logo"
-            className="w-full"
+            className={cn("w-full block", pathname !== "/" && 'hidden')}
           />
         </div>
       </div>

@@ -45,7 +45,6 @@ export interface Modifier {
   _id?: string; // This assumes that modifiers may have an ID, but it's not always present in your data. Remove it if this isn't the case.
   modifierOrder: number;
   modifierItemOrder: number;
-  defaultSelection: string
 }
 
 interface ModifierItem {

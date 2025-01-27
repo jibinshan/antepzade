@@ -1,4 +1,5 @@
-import type { Price } from "@/types/price.type";
+import type { Price } from "./price.type";
+
 
 export interface CartItem {
   name: string;
@@ -14,5 +15,6 @@ export interface CartItem {
 
 export interface CartItemModifier {
   _idModifiers: string;
+  _idMenuItem: string;
   price: Price;
 }

@@ -1,5 +1,5 @@
 "use client";
-import type { CartItem } from "@/types/cart-item.type";
+import type { CartItem, CartItemModifier } from "@/types/cart-item.type";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 type CartContextType = {
@@ -7,13 +7,19 @@ type CartContextType = {
   setCartSheetOpen: (open: boolean) => void;
   cartItems: CartItem[];
   addItem: (item: CartItem) => void;
-  removeItem: (id: string) => void;
-  updateItem: (id: string, quantity: number) => void;
+  removeItem: (id: string, modifiers?: CartItemModifier[]) => void;
+  updateItem: (item: CartItem, index: number) => void;
   clearCart: () => void;
   cartValue: () => number;
+  repeatItem: (id: string) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
+
+const generateCartItemKey = (item: Pick<CartItem, "_idMenuItem" | "modifiers">): string => {
+  const modifiersKey = item.modifiers ? JSON.stringify(item.modifiers.sort((a, b) => a._idModifiers.localeCompare(b._idModifiers))) : "";
+  return `${item._idMenuItem}-${modifiersKey}`;
+};
 
 export const useCart = () => {
   const context = useContext(CartContext);
@@ -23,9 +29,7 @@ export const useCart = () => {
   return context;
 };
 
-export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [initialLoad, setInitialLoad] = useState(true);
   const [cartSheetOpen, setCartSheetOpen] = useState(false);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -45,13 +49,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const addItem = (item: CartItem) => {
     setCartItems((prevItems) => {
-      const existingItem = prevItems.find(
-        (i) => i._idMenuItem === item._idMenuItem,
-      );
+      const itemKey = generateCartItemKey(item);
+      const existingItem = prevItems.find((i) => generateCartItemKey(i) === itemKey);
+
       if (existingItem) {
-        return prevItems.map((i) =>
-          i._idMenuItem === item._idMenuItem ? item : i,
-        );
+        return prevItems.map((i) => (generateCartItemKey(i) === itemKey ? ({ ...item, quantity: (existingItem.quantity ?? 1) + (item.quantity ?? 1) } as CartItem) : i));
       }
       return [...prevItems, item];
     });
@@ -63,26 +65,44 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         .reduce((acc, item) => {
           return acc + item.price.value;
         }, 0)
-        .toFixed(2),
+        .toFixed(2)
     );
   };
 
-  const removeItem = (id: string) => {
-    setCartItems((prevItems) =>
-      prevItems.filter((item) => item._idMenuItem !== id),
-    );
+  const removeItem = (id: string, modifiers?: CartItemModifier[]) => {
+    setCartItems((prevItems) => {
+      const itemToRemove = { _idMenuItem: id, modifiers: modifiers ?? [] };
+      const itemKey = generateCartItemKey(itemToRemove);
+      return prevItems.filter((item) => generateCartItemKey(item) !== itemKey);
+    });
   };
 
-  const updateItem = (id: string, quantity: number) => {
-    setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item._idMenuItem === id ? { ...item, quantity } : item,
-      ),
-    );
+  const updateItem = (updatedItem: CartItem, index: number) => {
+    setCartItems((prevItems) => {
+      const newItems = [...prevItems];
+      const actualIndex = prevItems.length - 1 - index;
+      if (actualIndex >= 0 && actualIndex < newItems.length) {
+        newItems[actualIndex] = updatedItem;
+      }
+      return newItems;
+    });
   };
 
   const clearCart = () => {
     setCartItems([]);
+  };
+
+  const repeatItem = (id: string) => {
+    setCartItems((prevItems) => {
+      const itemsWithId = prevItems.filter((item) => item._idMenuItem === id);
+      if (itemsWithId.length === 0) return prevItems;
+
+      const latestItem = itemsWithId[itemsWithId.length - 1];
+      if (!latestItem) return prevItems;
+
+      const latestItemIndex = prevItems.lastIndexOf(latestItem);
+      return prevItems.map((item, index) => (index === latestItemIndex ? ({ ...item, price: { ...item.price, value: item.price.value + item.price.value / item.quantity }, quantity: (item.quantity ?? 1) + 1 } as CartItem) : item));
+    });
   };
 
   return (
@@ -96,9 +116,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         cartSheetOpen,
         setCartSheetOpen,
         cartValue,
+        repeatItem,
       }}
     >
       {children}
     </CartContext.Provider>
   );
 };
+

@@ -1,27 +1,22 @@
 "use client";
-import {
-  type OrganizedMenu,
-  organizeMenuByCategory,
-} from "@/lib/organize-menu-by-category";
-import type { MenuCategory } from "@/types/menu-category.type";
-import type { MenuItem } from "@/types/menu-item.type";
+import { organizeMenu, type OrganizedMenu } from "@/lib/organize-menu";
+import type { MenuCategory, MenuItem } from "@/types/menu";
 import type { ModelData } from "@/types/model-data.type";
-import type { Restaurant } from "@/types/restaurant.type";
+import type { Restaurant } from "@/types/restaurant";
 import type { Review } from "@/types/review.type";
 import { useQuery } from "@tanstack/react-query";
 import axios, { type AxiosResponse } from "axios";
-import React, { createContext, useContext, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 type MenuContextType = {
-  items: MenuItem[];
+  organizedMenu: OrganizedMenu[];
   isLoading: boolean;
   isFetching: boolean;
-  sortedMenu: OrganizedMenu | null;
-  menuCategory: MenuCategory[] | undefined;
   apiUrl: string;
+  items: MenuItem[];
   restaurantID: string;
-  stripePublishableKey: string;
   restaurant: Restaurant | undefined;
+  stripePublishableKey: string;
   reviews: Review[] | undefined;
   modelData: ModelData[] | undefined;
 };
@@ -36,13 +31,7 @@ export const useRestaurant = () => {
   return context;
 };
 
-export const RestaurantProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const [sortedMenu, setSortedMenu] = React.useState<OrganizedMenu | null>(
-    null,
-  );
-
+export const RestaurantProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   if (!process.env.NEXT_PUBLIC_API_URL) {
     throw new Error("Missing API URL in environment variables");
   }
@@ -55,13 +44,19 @@ export const RestaurantProvider: React.FC<{ children: React.ReactNode }> = ({
     throw new Error("Missing Stripe Publishable Key in environment variables");
   }
 
+  const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const restaurantID = process.env.NEXT_PUBLIC_RESTAURANT_ID;
 
-  const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+  const [organizedMenu, setOrganizedMenu] = useState<OrganizedMenu[]>([]);
 
-  const { data: restaurant } = useQuery({
+  const {
+    data: restaurant,
+    isLoading,
+    isFetching,
+  } = useQuery({
     queryKey: ["restaurant", restaurantID],
     queryFn: async () => {
       const res: AxiosResponse<{
@@ -71,41 +66,20 @@ export const RestaurantProvider: React.FC<{ children: React.ReactNode }> = ({
     },
   });
 
-  const {
-    data: items,
-    isLoading,
-    isFetching,
-  } = useQuery({
-    queryKey: ["menu", restaurantID],
-    queryFn: async () => {
-      const res: AxiosResponse<{
-        data: {
-          rows: MenuItem[];
-        };
-      }> = await axios.get(
-        `${apiUrl}/menu?pageSize=30000&pageNum=1&orderBy=order&orderByDir=asc&filter__idRestaurant=${restaurantID}`,
-      );
-
-      return res.data.data.rows;
-    },
-  });
-
-  const { data: menuCategory } = useQuery({
+  const { data: rawMenuCategory } = useQuery({
     queryKey: ["restaurant", restaurantID, "category"],
     queryFn: async () => {
       const res: AxiosResponse<{
         data: {
           rows: MenuCategory[];
         };
-      }> = await axios.get(
-        `${apiUrl}/restaurant/${restaurantID}/category?pageSize=30000&pageNum=1&filter_enabled=true`,
-      );
+      }> = await axios.get(`${apiUrl}/restaurant/${restaurantID}/category?pageSize=30000&pageNum=1&filter_enabled=true`);
       const data = res.data.data.rows;
-      const filteredData = data
-        .filter((item) => item.name.toLowerCase() !== "modifiers")
+      const sortedData = data
+        .filter((item) => item.name.toLowerCase() !== "modifier" && item.name.toLowerCase() !== "modifiers" && item.name.toLowerCase() !== "extras")
         .filter((item) => item.order)
         .sort((a, b) => a.order - b.order);
-      return filteredData
+      return sortedData;
     },
   });
 
@@ -134,24 +108,39 @@ export const RestaurantProvider: React.FC<{ children: React.ReactNode }> = ({
     },
   });
 
+
+  const { data: items } = useQuery({
+    queryKey: ["menu", restaurantID],
+    queryFn: async () => {
+      const res: AxiosResponse<{
+        data: {
+          rows: MenuItem[];
+        };
+      }> = await axios.get(`${apiUrl}/menu?pageSize=30000&pageNum=1&orderBy=order&orderByDir=asc&filter__idRestaurant=${restaurantID}&filter_enabled=true`);
+
+      const data = res.data.data.rows;
+      return data;
+    },
+  });
+
   useEffect(() => {
-    if (items && menuCategory) {
-      setSortedMenu(organizeMenuByCategory(items, menuCategory));
+    if (items && rawMenuCategory) {
+      const organized = organizeMenu(items, rawMenuCategory);
+      setOrganizedMenu(organized);
     }
-  }, [items, menuCategory]);
+  }, [items, rawMenuCategory]);
 
   return (
     <RestaurantContext.Provider
       value={{
         items: items ?? [],
+        organizedMenu,
         isLoading,
         isFetching,
-        sortedMenu,
-        menuCategory,
         apiUrl,
         restaurantID,
-        stripePublishableKey,
         restaurant,
+        stripePublishableKey,
         reviews,
         modelData,
       }}
